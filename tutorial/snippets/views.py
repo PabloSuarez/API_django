@@ -13,15 +13,8 @@ from rest_framework import renderers
 
 from rest_framework import viewsets
 
-@api_view(('GET',))
-def api_root(request, format=None):
-    return Response({
-        'users': reverse('user-list', request=request, format=format),
-        'snippets': reverse('snippet-list', request=request, format=format)
-    })
-
-
 from rest_framework.decorators import detail_route
+
 
 class SnippetViewSet(viewsets.ModelViewSet):
     """
